@@ -44,7 +44,7 @@ reasons = [
     "Your hands are soft and warm, you warm me hands when I'm driving",
     "You're an emotional baby - my emotional baby <3",
     "We can exist together without doing anything",
-    "You don't let me mini-nap next to you because 'stopppp there's no timee we only have 9 hours left",
+    "You don't let me mini-nap next to you because 'stopppp there's no timee we only have 9 hours left'",
     "You freak out at cracking noises",
     "You have cute pyjamas (take em off mwah)",
     "You have a small group of friends but I can tell they'll be life-long friends",

@@ -59,12 +59,13 @@ def home():
 
 @app.route('/get_reason', methods=['GET'])
 def get_reason():
-    global reasons
+    global reasons, original_reasons  # Ensure original_reasons is recognized
     if not reasons:
         reasons = original_reasons.copy()  # Reset the pool when exhausted
     reason = random.choice(reasons)
     reasons.remove(reason)
     return jsonify({"reason": reason})
+
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=5000)

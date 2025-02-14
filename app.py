@@ -4,7 +4,7 @@ import random
 app = Flask(__name__)
 
 # List of reasons why you love Zamila
-reasons = [
+original_reasons = [
     "I love how we can talk for hours and never get bored",
     "You have a type of laugh that I've never heard before, I like it :)",
     "Being with you makes me forget everything else",
@@ -50,6 +50,9 @@ reasons = [
     "You have a small group of friends but I can tell they'll be life-long friends",
 ]
 
+# Make an initial copy of the reasons list
+reasons = original_reasons.copy()
+
 @app.route('/')
 def home():
     try:
@@ -59,13 +62,15 @@ def home():
 
 @app.route('/get_reason', methods=['GET'])
 def get_reason():
-    global reasons, original_reasons  # Ensure original_reasons is recognized
-    if not reasons:
-        reasons = original_reasons.copy()  # Reset the pool when exhausted
+    global reasons, original_reasons  # Ensure both are recognized
+
+    if not reasons:  # If all reasons are exhausted, reset the list
+        reasons = original_reasons.copy()
+
     reason = random.choice(reasons)
     reasons.remove(reason)
-    return jsonify({"reason": reason})
 
+    return jsonify({"reason": reason})
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=5000)
